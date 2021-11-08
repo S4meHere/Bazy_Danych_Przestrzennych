@@ -10,7 +10,6 @@ SELECT * FROM trees;
 --3. Oblicz długość linii kolejowych dla regionu Matanuska-Susitna.
 
 --SELECT * FROM railroads;
---SELECT * FROM regions WHERE name_2 = 'Matanuska-Susitna';
 
 --SELECT SUM(ST_Length(geom)) FROM railroads;
 
