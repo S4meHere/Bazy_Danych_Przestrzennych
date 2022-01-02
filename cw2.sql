@@ -1,10 +1,10 @@
--- 4. Wyznacz liczbę budynków (tabela: popp, atrybut: f_codedesc, reprezentowane, jako punkty) położonych w odległości mniejszej niż 1000 m od głównych rzek.
+-- 4. Wyznacz liczbę budynków (tabela: popp, atrybut: f_codedesc, reprezentowane, jako punkty) 
+-- położonych w odległości mniejszej niż 1000 m od głównych rzek.
 -- Budynki spełniające to kryterium zapisz do osobnej tabeli tableB.
 
 --SELECT * FROM popp;
 
-SELECT DISTINCT P.*
-INTO tableB
+SELECT DISTINCT P.* INTO tableB
 FROM majrivers R, popp P
 WHERE  ST_DWithin(P.geom, R.geom, 1000) AND P.f_codedesc = 'Building';
 
@@ -13,12 +13,13 @@ FROM tableB;
 
 --SELECT * FROM tableB ORDER BY gid;
 
--- 5. Utwórz tabelę o nazwie airportsNew. Z tabeli airports do zaimportuj nazwy lotnisk, ich geometrię, a także atrybut elev, reprezentujący wysokość n.p.m.
+-- 5. Utwórz tabelę o nazwie airportsNew. Z tabeli airports do zaimportuj nazwy lotnisk,
+-- ich geometrię, a także atrybut elev, reprezentujący wysokość n.p.m.
 
 --SELECT * FROM airports;
 
 SELECT name, geom, elev
---INTO airportsNew
+INTO airportsNew
 FROM airports;
 
 -- a) Znajdź lotnisko, które położone jest najbardziej na zachód i najbardziej na wschód
